@@ -1,0 +1,44 @@
+config:
+  target: "https://postman-echo.com"
+  phases:
+    - duration: 60
+      arrivalRate: 2
+      name: Spike-pre Warm-Up
+    - duration: 5
+      arrivalRate: 20
+      name: Spike test
+    - duration: 60
+      arrivalRate: 2
+      name: Spike-post Cool-down
+  payload:
+    -
+      path: "keywords.csv"
+      fields:
+        - "UserName"
+        - "UserAge"
+      order: sequence
+  plugins:
+    ensure: {}
+  ensure:
+    thresholds:
+      - http.response_time.p95: 1000
+    conditions:
+      - expression: vusers.failed == 0
+      - expression: "http.request_rate >= 2 and http.response_time.max < 600" 
+scenarios:
+  - name: Getting a resource
+    flow:
+      - get:
+          url: "{{ target }}/get?param1={{ **UserName** }}"
+      - post:
+          url: "{{ target }}/post?param2={{ **UserAge** }}"
+          json:
+            userName: "{{UserName}}"
+            userAge: "{{UserAge}}"
+          capture:
+            - json: "$.json"
+              as: "request_body"
+            - json: "$.headers.host"
+              as: "host"
+      - log: "Json value from response is: {{request_body}}"
+      - log: "Host value from response is: {{host}}"
