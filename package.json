@@ -11,7 +11,8 @@
     "cypress:run:chrome:hom3": "npx cypress run -b chrome --headed --spec cypress/e2e/homework3/pageObjectLoginUser.cy.js",
     "cypress:run:chrome:hom4": "npx cypress run -b chrome --headed --spec cypress/e2e/homework4/api-tests.cy.js",
     "cypress:run:terminal:hom4": "npx cypress run --spec cypress/e2e/homework4/api-tests.cy.js",
-    "artillery:run:hom5": "artillery run homework5/spikeTest.yml"
+    "artillery:run:hom5": "artillery run homework5/spikeTest.yml",
+    "moj:super:skrypt:xyz": "cypress run --headless --browser chrome"
   },
   "keywords": [],
   "author": "",
