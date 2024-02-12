@@ -1,8 +1,5 @@
-# goit-cypress-hm-05
+# goit-cypress-hm-06
 
-Weź dowolne publiczne API z poniższej listy - https://github.com/public-apis/public-apis Stwórz test wydajnościowy dla Artillery, opisując go w pliku yaml, używając narzędzi i praktyk z tego kursu:
+Weź swój projekt z Cypressa. Prześlij go na githuba, jeśli jeszcze go tam nie ma.
 
-Skonfiguruj fazę dla jednego z typów testów obciążeniowych.
-Dodaj żądania GET i POST do sekcji flow.
-Użyj sekcji payload i odczytu danych z pliku, aby skonfigurować ciało żądania POST
-Dodaj walidację trzech metryk końcowych (np. response_time.p95 lub inne)
+Skonfiguruj testy dla tego projektu, aby automatycznie uruchamiały się, gdy popchniesz nowy kod do głównej gałęzi za pomocą Github Actions.
